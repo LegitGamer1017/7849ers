@@ -12,6 +12,7 @@ import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 /**
  * Add your docs here.
@@ -23,15 +24,16 @@ public class Arm extends Subsystem {
 
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
+    // making method and object for our talon
   }
 
   public void setArmPower(double power) {
     armTalon.set(ControlMode.PercentOutput, power);
-  }
+  } //setting Arm Power
 
   public void setArmPosition(double position) {
     armTalon.set(ControlMode.Position, position);
-//find what tick corresponds to postion 
+// find what tick corresponds to position on arm. 
 
   }
   @Override
