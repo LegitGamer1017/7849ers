@@ -28,6 +28,7 @@ public class Drivetrain extends Subsystem {
   WPI_VictorSPX rightBackVictorSPX = null;
 
   DifferentialDrive differentialDrive = null;
+  // protected double limit(1);
 
   public Drivetrain() {
 // VictorSPX
@@ -46,7 +47,9 @@ public class Drivetrain extends Subsystem {
   }
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-      differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+      differentialDrive.arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
+      // System.out.println(movespeed);
+      // moveSpeed = Drivetrain.limit(0.5);
     }
 
 

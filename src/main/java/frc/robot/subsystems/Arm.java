@@ -33,9 +33,33 @@ public class Arm extends Subsystem {
 
   public void setArmPosition(double position) {
     armTalon.set(ControlMode.Position, position);
-// find what tick corresponds to position on arm. 
+//  find what tick corresponds to position on arm.
+// DRIVER_CONTROLLER_Y.whenPressed();
 
+// DRIVER_CONTROLLER_Y.whenReleased();
+
+  }  
+  
+  public void raiseArmPosition(double height){
+    armTalon.set(ControlMode.Position, height);
+    //  if(controller.getPOV() == 0) {
+      // increase power by 10
+    }
+      // if(controller.getPOV() == 180) {
+      // decrease power by 10;
+    
+
+  
+
+  public void pivotArmPosition(double degrees){
+    armTalon.set(ControlMode.Position, degrees);
+
+  // .whenPressed());
+
+  // button6.whenPressed();
   }
+
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

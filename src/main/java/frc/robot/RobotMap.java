@@ -27,8 +27,22 @@ public class RobotMap {
   
   //Joystick
 	public static final int OI_DRIVER_CONTROLLER = 0;
-	public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // X-axis of Right Joystick
   public static final int DRIVER_CONTROLLER_MOVE_AXIS = 1; // Y-axis of Left Joystick
+  public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 2; // X-axis of Right Joystick 
+  public static final int DRIVER_CONTROLLER_X = 3;
+  public static final int DRIVER_CONTROLLER_A = 4;
+  public static final int DRIVER_CONTROLLER_B = 5;
+  public static final int DRIVER_CONTROLLER_Y = 6;
+  public static final int DRIVER_CONTROLLER_LB = 7;
+  public static final int DRIVER_CONTROLLER_RB = 8;
+  public static final int DRIVER_CONTROLLER_LEFTTRIGGER = 9;
+  public static final int DRIVER_CONTROLLER_RIGHTTRIGGER = 10;
+  public static final int DRIVER_CONTROLLER_BACK = 11;
+  public static final int DRIVER_CONTROLLER_START = 12;
+  public static final int DRIVER_CONTROLLER_LEFTTRIGGERCLICK = 13;
+  public static final int DRIVER_CONTROLLER_RIGHTTRIGGERCLICK = 14;
+
+
   
   public static final int ARM_TALON = 5; //arm
 
