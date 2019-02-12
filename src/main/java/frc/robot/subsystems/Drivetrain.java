@@ -47,8 +47,15 @@ public class Drivetrain extends Subsystem {
   }
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed) {
-      differentialDrive.arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
-      // System.out.println(movespeed);
+      /* while (buttonA.getRawButton() == false) {
+        arcadeDrive(-moveSpeed, rotateSpeed / 1.5);
+      } 
+      */
+      
+      arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
+
+     
+      // System.out.println(moveSpeed);
       // moveSpeed = Drivetrain.limit(0.5);
     }
 
