@@ -52,7 +52,7 @@ public class Drivetrain extends Subsystem {
       } 
       */
       
-      arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
+      differentialDrive.arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
 
      
       // System.out.println(moveSpeed);
