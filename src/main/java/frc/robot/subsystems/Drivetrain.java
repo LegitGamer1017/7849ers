@@ -53,7 +53,7 @@ public class Drivetrain extends Subsystem {
       */
       
       differentialDrive.arcadeDrive(-moveSpeed / 1.5, rotateSpeed / 1.5);
-
+// speed is from -1 to 1
      
       // System.out.println(moveSpeed);
       // moveSpeed = Drivetrain.limit(0.5);
