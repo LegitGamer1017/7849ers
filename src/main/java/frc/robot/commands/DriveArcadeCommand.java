@@ -29,8 +29,11 @@ public class DriveArcadeCommand extends Command {
     double moveSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
     double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
 
+    boolean sprintPressed = Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_A);
+
     System.out.println("3 throttle: " + moveSpeed + "\tturn: " + rotateSpeed);
-    Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+
+    Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed, sprintPressed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -42,7 +45,7 @@ public class DriveArcadeCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_drivetrain.arcadeDrive(0, 0);
+    Robot.m_drivetrain.arcadeDrive(0, 0, false);
   }
 
   // Called when another command which requires one or more of the same

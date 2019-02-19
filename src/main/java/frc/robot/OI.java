@@ -1,13 +1,8 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -15,6 +10,12 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
   public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+
+  // We only seem to need JoystickButtons here if we want to trigger "Commands"
+  // on a button press. If you just want to check the raw status of a button,
+  // see the code in DraveArcadeCommand, which just uses `driverController` above.
+  
+  
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
