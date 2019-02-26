@@ -21,18 +21,18 @@ public class RobotMap {
   public static final int DRIVER_CONTROLLER_ROTATE_AXIS = JOY_RIGHT_X;
 
   // Controller buttons
-  public static final int DRIVER_CONTROLLER_X = 3;
-  public static final int DRIVER_CONTROLLER_A = 4;
-  public static final int DRIVER_CONTROLLER_B = 5;
-  public static final int DRIVER_CONTROLLER_Y = 6;
-  public static final int DRIVER_CONTROLLER_LB = 7;
-  public static final int DRIVER_CONTROLLER_RB = 8;
-  public static final int DRIVER_CONTROLLER_LEFTTRIGGER = 9;
-  public static final int DRIVER_CONTROLLER_RIGHTTRIGGER = 10;
-  public static final int DRIVER_CONTROLLER_BACK = 11;
-  public static final int DRIVER_CONTROLLER_START = 12;
-  public static final int DRIVER_CONTROLLER_LEFTTRIGGERCLICK = 13;
-  public static final int DRIVER_CONTROLLER_RIGHTTRIGGERCLICK = 14;
+  public static final int DRIVER_CONTROLLER_X = 1;
+  public static final int DRIVER_CONTROLLER_A = 2;
+  public static final int DRIVER_CONTROLLER_B = 3; 
+  public static final int DRIVER_CONTROLLER_Y = 4; 
+  public static final int DRIVER_CONTROLLER_LB = 5;
+  public static final int DRIVER_CONTROLLER_RB = 6;
+  public static final int DRIVER_CONTROLLER_LEFTTRIGGER = 7;
+  public static final int DRIVER_CONTROLLER_RIGHTTRIGGER = 8;
+  public static final int DRIVER_CONTROLLER_BACK = 9;
+  public static final int DRIVER_CONTROLLER_START = 10;
+  public static final int DRIVER_CONTROLLER_LEFTTRIGGERCLICK = 11;
+  public static final int DRIVER_CONTROLLER_RIGHTTRIGGERCLICK = 12;
 
   // The ID of the controller to use
   public static final int OI_DRIVER_CONTROLLER = 0;

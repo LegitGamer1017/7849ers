@@ -23,8 +23,8 @@ public class Drivetrain extends Subsystem {
     SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontVictorSPX, leftBackVictorSPX);
     SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontVictorSPX, rightBackVictorSPX);
 
-    leftMotors.setInverted(true);
-    rightMotors.setInverted(true);
+    // leftMotors.setInverted(true);
+    // rightMotors.setInverted(true);
 
     differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
   }
@@ -35,6 +35,7 @@ public class Drivetrain extends Subsystem {
         rotateSpeed = rotateSpeed / 1.20;
       }
       // Right now we seem to be BOTH using `setInverted` above AND negating the speed here..
+      //We turned off .setinverted and kept -movespeed because rotatation is flipped without -movespeed
       differentialDrive.arcadeDrive(-moveSpeed, rotateSpeed);
     }
 
