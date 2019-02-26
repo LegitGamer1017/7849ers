@@ -29,7 +29,7 @@ public class DriveArcadeCommand extends Command {
     double moveSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
     double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
 
-    boolean sprintPressed = Robot.m_oi.driverController.getRawButton(11);
+    boolean sprintPressed = Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_RIGHTTRIGGER);
 
     System.out.println("3 throttle: " + moveSpeed + "\tturn: " + rotateSpeed);
 
