@@ -5,12 +5,15 @@ package frc.robot;
  * we can talk about thing by name instead of meaningless number.
  */
 public class RobotMap {
-	// CAN BUS IDs (for e.g. motor controllers)
-  public static final int DRIVETRAIN_LEFT_FRONT_VICTORSPX = 1;
+  // CAN BUS IDs (for e.g. motor controllers)
+  //Set in phoenix tuner application
+  //Assign id's by plugging it in through USB and wifi 
+  public static final int DRIVETRAIN_LEFT_FRONT_VICTORSPX = 1; 
 	public static final int DRIVETRAIN_LEFT_BACK_VICTORSPX = 2;
 	public static final int DRIVETRAIN_RIGHT_FRONT_VICTORSPX = 3;
   public static final int DRIVETRAIN_RIGHT_BACK_VICTORSPX = 4;
-  public static final int ARM_TALON = 5;
+  public static final int ARM_TALON = 5; // maybe?
+
   
   // Controller joysticks (these are a guess... please verify and remove this comment?)
   public static final int JOY_LEFT_X = 0;

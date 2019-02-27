@@ -33,6 +33,7 @@ public class Arm extends Subsystem {
 
   public void setArmPosition(double position) {
     armTalon.set(ControlMode.Position, position);
+    
 //  find what tick corresponds to position on arm.
 // DRIVER_CONTROLLER_Y.whenPressed();
 
