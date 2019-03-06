@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.Faults;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -21,10 +22,24 @@ public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   WPI_TalonSRX armTalon;
+  Faults fault;
 
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
+    fault = new Faults();
+    armTalon.configPeakCurrentLimit(5);
+    armTalon.configPeakCurrentDuration(100);
+    armTalon.configContinuousCurrentLimit(5);
+    // TODO: config sensor?
     // making method and object for our talon
+  }
+
+  public void printCurrentPosition() {
+    armTalon.getFaults(fault);
+    System.out.println("Sensor Vel: " + armTalon.getSelectedSensorVelocity());
+    System.out.println("Sensor Pos: " + armTalon.getSelectedSensorPosition());
+    System.out.println("Out % " + armTalon.getMotorOutputPercent());
+    System.out.println(fault);
   }
 
   public void setArmPower(double power) {
