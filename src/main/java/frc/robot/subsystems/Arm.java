@@ -27,10 +27,10 @@ public class Arm extends Subsystem {
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
     fault = new Faults();
-    armTalon.configPeakCurrentLimit(5);
+    armTalon.configPeakCurrentLimit(10);
     armTalon.configPeakCurrentDuration(100);
-    armTalon.configContinuousCurrentLimit(5);
-    // TODO: config sensor?
+    armTalon.configContinuousCurrentLimit(10);
+    // TODO: config sec
     // making method and object for our talon
   }
 
