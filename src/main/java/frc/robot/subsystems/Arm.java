@@ -27,9 +27,9 @@ public class Arm extends Subsystem {
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
     fault = new Faults();
-    armTalon.configPeakCurrentLimit(10);
+    armTalon.configPeakCurrentLimit(5);
     armTalon.configPeakCurrentDuration(100);
-    armTalon.configContinuousCurrentLimit(10);
+    armTalon.configContinuousCurrentLimit(5);
     // TODO: config sec
     // making method and object for our talon
   }
@@ -40,6 +40,8 @@ public class Arm extends Subsystem {
     System.out.println("Sensor Pos: " + armTalon.getSelectedSensorPosition());
     System.out.println("Out % " + armTalon.getMotorOutputPercent());
     System.out.println(fault);
+    System.out.println("Output Current: " + armTalon.getOutputCurrent());
+    System.out.println("Current Tempature is: " + armTalon.getTemperature());
   }
 
   public void setArmPower(double power) {
