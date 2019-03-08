@@ -31,10 +31,11 @@ public class Drivetrain extends Subsystem {
 
     public void arcadeDrive(double moveSpeed, double rotateSpeed, boolean sprint) {
       if(!sprint) {
-        moveSpeed = moveSpeed / 1.35;
-        rotateSpeed = rotateSpeed / 1.5;
+        moveSpeed = moveSpeed / 2; //Demonstration test
+        rotateSpeed = rotateSpeed / 2; //Demonstration Test
+        // moveSpeed = moveSpeed / 1.35; For actual driving
+        // rotateSpeed = rotateSpeed / 1.5; For actual driving
       }
-      // Right now we seem to be BOTH using `setInverted` above AND negating the speed here..
       //We turned off .setinverted and kept -movespeed because rotatation is flipped without -movespeed
       differentialDrive.arcadeDrive(-moveSpeed, rotateSpeed, true);
     }

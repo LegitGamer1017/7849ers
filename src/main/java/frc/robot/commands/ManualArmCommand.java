@@ -30,7 +30,7 @@ public class ManualArmCommand extends Command {
   @Override
   protected void execute() {
     int dpad = Robot.m_oi.driverController.getPOV();
-    double speed = 0.7; 
+    double speed = 1.1; 
     if (dpad == 0) {
       // Up direction
       Robot.m_Arm.setArmPower(speed);
