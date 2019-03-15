@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -8,59 +8,29 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Robot;
-import frc.robot.RobotMap;
+import frc.robot.subsystems.Arm;
 
-
-
-/**
- * An example command.  You can replace me with your own command.
- */
-public class ManualArmCommand extends Command {
-  public ManualArmCommand() {
+public class LimitSwitches extends Command {
+  public LimitSwitches() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_Arm);
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    int dpad = Robot.m_oi.driverController.getPOV();
-    double speed = 1.1; 
-     int LimitSwitchValue1 = limitSwitch1.get();
-   
-
-     TODO: //FIX THIS
-    while (limitSwitch1.get() == 0){
-      Robot.setArmPower(10);
-      
-    }
-      if (dpad == 0) {
-      // Up direction
-      Robot.m_Arm.setArmPower(speed);
-    } else if (dpad == 180) {
-      // Down direction
-      Robot.m_Arm.setArmPower(-speed);
-    } else if (dpad == 90) {
-      // Right direction
-      Robot.m_Arm.printCurrentPosition();
-    } else {
-      // dpad = -1, no movement
-      Robot.m_Arm.setArmPower(0);
-    }
   }
-
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    // return Robot.m_Arm.stopArmMovement();
-    
+
     return false;
   }
 

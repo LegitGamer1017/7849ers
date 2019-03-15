@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -19,6 +20,7 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.commands.DriveArcadeCommand;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,6 +34,7 @@ public class Robot extends TimedRobot {
   public static Drivetrain m_drivetrain = null;
   public static Arm m_Arm = null;
   public static OI m_oi;
+  DigitalInput limitSwitch1;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -46,6 +49,7 @@ public class Robot extends TimedRobot {
     m_Arm = new Arm();
     m_oi = new OI();
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
+    limitSwitch1 = new DigitalInput(1);
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
@@ -135,6 +139,9 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+      while (limitSwitch1.get()) {
+        Timer.delay(10);
+      }
   }
 
   /**

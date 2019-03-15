@@ -22,10 +22,12 @@ public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   WPI_TalonSRX armTalon;
+  
   Faults fault;
 
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
+    limitSwitch1 = new 
     fault = new Faults();
     armTalon.configPeakCurrentLimit(5);
     armTalon.configPeakCurrentDuration(100);
@@ -75,6 +77,10 @@ public class Arm extends Subsystem {
   // .whenPressed());
 
   // button6.whenPressed();
+  }
+
+  public void stopArmMovement(double power){
+    armTalon.set(ControlMode.PercentOutput, power);
   }
 
 
