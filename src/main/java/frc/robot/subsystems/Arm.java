@@ -12,6 +12,7 @@ import frc.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.Faults;
+import com.ctre.phoenix.motorcontrol.WPI_MotorSafetyImplem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -21,66 +22,52 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+  // Grasping arm
   WPI_TalonSRX armTalon;
+  // Elevator control
+  WPI_TalonSRX elevatorTalon;
+  // Tilt control
+  WPI_TalonSRX tiltTalon;
   
+
   Faults fault;
 
   public Arm() {
     armTalon = new WPI_TalonSRX(RobotMap.ARM_TALON);
-    limitSwitch1 = new 
-    fault = new Faults();
     armTalon.configPeakCurrentLimit(5);
     armTalon.configPeakCurrentDuration(100);
     armTalon.configContinuousCurrentLimit(5);
-    // TODO: config sec
-    // making method and object for our talon
+
+    elevatorTalon = new WPI_TalonSRX(RobotMap.ELEVATOR_TALON);
+
+    tiltTalon = new WPI_TalonSRX(RobotMap.TILT_TALON);
+
+
+    // limitSwitch1 = new limitswi
+    fault = new Faults();
   }
 
-  public void printCurrentPosition() {
-    armTalon.getFaults(fault);
-    System.out.println("Sensor Vel: " + armTalon.getSelectedSensorVelocity());
-    System.out.println("Sensor Pos: " + armTalon.getSelectedSensorPosition());
-    System.out.println("Out % " + armTalon.getMotorOutputPercent());
+  public void printCurrentElevatorPosition() {
+    elevatorTalon.getFaults(fault);
+    System.out.println("Sensor Vel: " + elevatorTalon.getSelectedSensorVelocity());
+    System.out.println("Sensor Pos: " + elevatorTalon.getSelectedSensorPosition());
+    System.out.println("Out % " + elevatorTalon.getMotorOutputPercent());
     System.out.println(fault);
-    System.out.println("Output Current: " + armTalon.getOutputCurrent());
-    System.out.println("Current Tempature is: " + armTalon.getTemperature());
+    System.out.println("Output Current: " + elevatorTalon.getOutputCurrent());
+    System.out.println("Current Tempature is: " + elevatorTalon.getTemperature());
   }
 
   public void setArmPower(double power) {
     armTalon.set(ControlMode.PercentOutput, power);
-  } //setting Arm Power
-
-  public void setArmPosition(double position) {
-    armTalon.set(ControlMode.Position, position);
-    
-//  find what tick corresponds to position on arm.
-// DRIVER_CONTROLLER_Y.whenPressed();
-
-// DRIVER_CONTROLLER_Y.whenReleased();
-
-  }  
-  
-  public void raiseArmPosition(double height){
-    armTalon.set(ControlMode.Position, height);
-    //  if(controller.getPOV() == 0) {
-      // increase power by 10
-    }
-      // if(controller.getPOV() == 180) {
-      // decrease power by 10;
-    
-
-  
-
-  public void pivotArmPosition(double degrees){
-    armTalon.set(ControlMode.Position, degrees);
-
-  // .whenPressed());
-
-  // button6.whenPressed();
   }
 
-  public void stopArmMovement(double power){
-    armTalon.set(ControlMode.PercentOutput, power);
+  public void setElevatorPower(double power) {
+    elevatorTalon.set(ControlMode.PercentOutput, power);
+  }
+
+  public void setTiltPower(double power) {
+    tiltTalon.set(ControlMode.PercentOutput, power);
   }
 
 
@@ -88,5 +75,6 @@ public class Arm extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    // TODO: We currently do this from Robot. Move to here instead?
   }
 }

@@ -31,28 +31,50 @@ public class ManualArmCommand extends Command {
   @Override
   protected void execute() {
     int dpad = Robot.m_oi.driverController.getPOV();
-    double speed = 1.1; 
-     int LimitSwitchValue1 = limitSwitch1.get();
+    //int LimitSwitchValue1 = limitSwitch1.get();
+    double arm_speed = 1.0;
+    double elevator_speed = 1.0;
+    double tilt_speed = 1.0;
    
-
-     TODO: //FIX THIS
-    while (limitSwitch1.get() == 0){
-      Robot.setArmPower(10);
-      
-    }
-      if (dpad == 0) {
+    //if (limitSwitch1.get() == 0){
+    //  Robot.setArmPower(10);
+    //}
+    
+    // DPAD controls elevator
+    if (dpad == 0) {
       // Up direction
-      Robot.m_Arm.setArmPower(speed);
+      Robot.m_Arm.setElevatorPower(elevator_speed);
     } else if (dpad == 180) {
       // Down direction
-      Robot.m_Arm.setArmPower(-speed);
+      Robot.m_Arm.setElevatorPower(-elevator_speed);
     } else if (dpad == 90) {
       // Right direction
-      Robot.m_Arm.printCurrentPosition();
+
+      // Debugging information to help us figure out what's going on?
+      Robot.m_Arm.printCurrentElevatorPosition();
     } else {
       // dpad = -1, no movement
+      Robot.m_Arm.setElevatorPower(0);
+    }
+
+    // Tilt controlled by X and A buttons
+    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_X)) {
+      Robot.m_Arm.setTiltPower(tilt_speed);
+    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_A)) {
+      Robot.m_Arm.setTiltPower(-tilt_speed);
+    } else {
+      Robot.m_Arm.setTiltPower(0);
+    }
+
+    // Grasping arm controlled by Y and B
+    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_Y)) {
+      Robot.m_Arm.setArmPower(arm_speed);
+    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_B)) {
+      Robot.m_Arm.setArmPower(-arm_speed);
+    } else {
       Robot.m_Arm.setArmPower(0);
     }
+
   }
 
 

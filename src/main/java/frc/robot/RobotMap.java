@@ -12,7 +12,9 @@ public class RobotMap {
 	public static final int DRIVETRAIN_LEFT_BACK_VICTORSPX = 2;
 	public static final int DRIVETRAIN_RIGHT_FRONT_VICTORSPX = 3;
   public static final int DRIVETRAIN_RIGHT_BACK_VICTORSPX = 4;
-  public static final int ARM_TALON = 5; // maybe?
+  public static final int ARM_TALON = 5;
+  public static final int ELEVATOR_TALON = 6;
+  public static final int TILT_TALON = 7;
 
   
   // Controller joysticks (these are a guess... please verify and remove this comment?)
