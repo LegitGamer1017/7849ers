@@ -108,6 +108,8 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
+    m_drivetrain.setDefaultCommand(new DriveArcadeCommand());
+    m_Arm.setDefaultCommand(new ManualArmCommand());
   }
 
   /**
