@@ -58,18 +58,20 @@ public class ManualArmCommand extends Command {
     }
 
     // Tilt controlled by X and A buttons
-    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_X)) {
+    //Now changed to A - Tilt up, B - tilt down
+    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_A)) {
       Robot.m_Arm.setTiltPower(tilt_speed);
-    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_A)) {
+    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_B)) {
       Robot.m_Arm.setTiltPower(-tilt_speed);
     } else {
       Robot.m_Arm.setTiltPower(0);
     }
 
     // Grasping arm controlled by Y and B
-    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_Y)) {
+    //Changed to left trigger and right trigger
+    if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_LEFTTRIGGER)) {
       Robot.m_Arm.setArmPower(arm_speed);
-    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_B)) {
+    } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_RIGHTTRIGGER)) {
       Robot.m_Arm.setArmPower(-arm_speed);
     } else {
       Robot.m_Arm.setArmPower(0);
