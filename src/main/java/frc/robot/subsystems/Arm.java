@@ -29,7 +29,8 @@ public class Arm extends Subsystem {
   WPI_TalonSRX elevatorTalon;
   // Tilt control
   WPI_TalonSRX tiltTalon;
-  
+  //Encoder
+
 
   Faults fault;
 
@@ -41,14 +42,15 @@ public class Arm extends Subsystem {
 
     elevatorTalon = new WPI_TalonSRX(RobotMap.ELEVATOR_TALON);
 
+    
     tiltTalon = new WPI_TalonSRX(RobotMap.TILT_TALON);
-
+    double quadEncoderPos = tiltTalon.getSelectedSensorVelocity();
 
     // limitSwitch1 = new limitswi
     fault = new Faults();
   }
 
-  public void printCurrentElevatorPosition() {
+   /* public void printCurrentElevatorPosition() {
     elevatorTalon.getFaults(fault);
     System.out.println("Sensor Vel: " + elevatorTalon.getSelectedSensorVelocity());
     System.out.println("Sensor Pos: " + elevatorTalon.getSelectedSensorPosition());
@@ -56,7 +58,7 @@ public class Arm extends Subsystem {
     System.out.println(fault);
     System.out.println("Output Current: " + elevatorTalon.getOutputCurrent());
     System.out.println("Current Tempature is: " + elevatorTalon.getTemperature());
-  }
+   } */
 
   public void setArmPower(double power) {
     armTalon.set(ControlMode.PercentOutput, power);

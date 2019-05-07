@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -20,7 +21,7 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.commands.DriveArcadeCommand;
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,6 +35,8 @@ public class Robot extends TimedRobot {
   public static Drivetrain m_drivetrain = null;
   public static Arm m_Arm = null;
   public static OI m_oi;
+  public static Encoder enc;
+  public static Encoder enc2;
   DigitalInput limitSwitch1;
 
   Command m_autonomousCommand;
@@ -53,6 +56,15 @@ public class Robot extends TimedRobot {
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     CameraServer.getInstance().startAutomaticCapture();
+    enc = new Encoder(9, 10, false, Encoder.EncodingType.k4X);
+    enc.setMaxPeriod(.1);
+    enc.setMinRate(10);
+    enc.setDistancePerPulse(5);
+    enc.setReverseDirection(true);
+    enc.setSamplesToAverage(7);
+
+    //enc2 = new Encoder(8, 9, false, Encoder.EncodingType.k4X);
+
 
   }
 
@@ -64,6 +76,14 @@ public class Robot extends TimedRobot {
    * <p>This runs after the mode specific periodic functions, but before
    * LiveWindow and SmartDashboard integrated updating.
    */
+
+/*sampleEncoder.setMaxPeriod(.1);
+samepleEncoder.setMiniRate(10);
+sampleEncoder.setDistancePerPulse(5);
+sampleEncoder.setReverseDirection(true);
+sampleEncoder.setSamplesToAverage(7);
+*/
+
   @Override
   public void robotPeriodic() {
   }
@@ -141,6 +161,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //System.out.println(enc.get());
   }
 
   /**

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.DriveArcadeCommand;
 
 /**
  * Subsystem for moving the robot around
@@ -43,6 +44,8 @@ public class Drivetrain extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
+
+    setDefaultCommand(new DriveArcadeCommand());
     // Set the default command for a subsystem here.
   
 

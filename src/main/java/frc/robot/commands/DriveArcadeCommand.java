@@ -31,8 +31,7 @@ public class DriveArcadeCommand extends Command {
 
     boolean sprintPressed = Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_RB);
     //Sprint changed to RB
-
-    System.out.println("3 throttle: " + moveSpeed + "\tturn: " + rotateSpeed);
+    //System.out.println("3 throttle: " + moveSpeed + "\tturn: " + rotateSpeed);
 
     Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed, sprintPressed);
   }

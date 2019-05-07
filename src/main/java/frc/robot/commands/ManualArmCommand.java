@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
@@ -25,6 +26,7 @@ public class ManualArmCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -44,6 +46,8 @@ public class ManualArmCommand extends Command {
     if (dpad == 0) {
       // Up direction
       Robot.m_Arm.setElevatorPower(elevator_speed);
+      int count = Robot.enc.get();
+      System.out.println(count);
     } else if (dpad == 180) {
       // Down direction
       Robot.m_Arm.setElevatorPower(-elevator_speed);
@@ -51,7 +55,8 @@ public class ManualArmCommand extends Command {
       // Right direction
 
       // Debugging information to help us figure out what's going on?
-      Robot.m_Arm.printCurrentElevatorPosition();
+      //Robot.m_Arm.printCurrentElevatorPosition();
+      
     } else {
       // dpad = -1, no movement
       Robot.m_Arm.setElevatorPower(0);
@@ -60,9 +65,9 @@ public class ManualArmCommand extends Command {
     // Tilt controlled by X and A buttons
     //Now changed to A - Tilt up, B - tilt down
     if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_A)) {
-      Robot.m_Arm.setTiltPower(tilt_speed);
+      Robot.m_Arm.setTiltPower(tilt_speed * 2);
     } else if (Robot.m_oi.driverController.getRawButton(RobotMap.DRIVER_CONTROLLER_B)) {
-      Robot.m_Arm.setTiltPower(-tilt_speed);
+      Robot.m_Arm.setTiltPower(-tilt_speed * 2);
     } else {
       Robot.m_Arm.setTiltPower(0);
     }
