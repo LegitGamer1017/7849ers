@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
   public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
-
+public Joystick airMover = new Joystick(2); Joystick
   // We only seem to need JoystickButtons here if we want to trigger "Commands"
   // on a button press. If you just want to check the raw status of a button,
   // see the code in DraveArcadeCommand, which just uses `driverController` above.
